@@ -1,0 +1,72 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+}
+
+/* Tailwind v4: enable class-based dark mode driven by <html class="dark"> */
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --bg: #fbfaf8;
+  --panel: #ffffff;
+  --line: #e6e2dc;
+  --ink: #17161a;
+  --muted: #6b6862;
+  --accent: #0f766e;
+  --accent-soft: #ccfbf1;
+}
+
+.dark {
+  --bg: #0c0d11;
+  --panel: #14161c;
+  --line: #262a34;
+  --ink: #eceef2;
+  --muted: #9096a3;
+  --accent: #5eead4;
+  --accent-soft: #10322f;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Scroll-reveal ------------------------------------------------------------ */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Print -------------------------------------------------------------------- */
+@media print {
+  @page { margin: 14mm; }
+  .no-print { display: none !important; }
+  body { background: #fff !important; color: #000 !important; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+  .print-block { break-inside: avoid; }
+  a[href^='http']::after { content: ' (' attr(href) ')'; font-size: 0.7rem; color: #555; }
+}

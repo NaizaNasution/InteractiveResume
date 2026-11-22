@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Muhammad Naireza Nasution — System Tester</title>
+    <meta
+      name="description"
+      content="QA engineer and system tester in Subang Jaya, Malaysia. Test strategy, Playwright automation and agile release quality."
+    />
+    <meta name="author" content="Muhammad Naireza Nasution" />
+
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content="Muhammad Naireza Nasution — System Tester" />
+    <meta
+      property="og:description"
+      content="QA engineer and system tester. Test strategy, Playwright automation and agile release quality."
+    />
+    <meta name="twitter:card" content="summary" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      // Apply the saved theme before first paint so there is no light-mode flash.
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'dark' || (!t && matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        }
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
