@@ -15,15 +15,6 @@ export function Hero() {
 
           <p className="mt-4 text-xl sm:text-2xl" style={{ color: 'var(--muted)' }}>
             {profile.title}
-            {current && (
-              <>
-                {' '}
-                <span className="hidden sm:inline">at</span>{' '}
-                <span className="hidden sm:inline" style={{ color: 'var(--ink)' }}>
-                  {current.company}
-                </span>
-              </>
-            )}
           </p>
 
           <p className="mt-5 max-w-xl text-base leading-relaxed" style={{ color: 'var(--muted)' }}>
