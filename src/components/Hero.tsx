@@ -1,9 +1,8 @@
 import portrait from '../assets/portrait.jpg'
-import { contact, experience, profile } from '../data/resume'
+import { contact, profile } from '../data/resume'
 import { CopyEmail } from './CopyEmail'
 
 export function Hero() {
-  const current = experience.find((j) => j.current)
 
   return (
     <section id="top" className="mx-auto w-full max-w-5xl px-6 pt-28 pb-10 sm:pt-32 sm:pb-14">
