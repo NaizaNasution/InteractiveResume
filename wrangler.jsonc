@@ -1,0 +1,18 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "naireza",
+  "compatibility_date": "2026-11-22",
+
+  // A purely static site: no Worker script, so there is no "main" entry.
+  // Cloudflare serves ./dist straight from its edge network.
+  "assets": {
+    "directory": "./dist",
+
+    // "none" is deliberate. This site has no client-side router — the nav uses
+    // in-page anchors (#about, #skills), which never reach the server as paths.
+    // SPA mode would answer every mistyped URL with the resume and an HTTP 200,
+    // producing soft-404s that search engines penalise. Switch this to
+    // "single-page-application" only if real client-side routes are added later.
+    "not_found_handling": "none"
+  }
+}

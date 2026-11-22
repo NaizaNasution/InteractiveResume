@@ -25,3 +25,6 @@ dist-ssr
 
 # Source document — remove this line if you want to track it
 "Resume Reza.docx"
+
+# Wrangler
+.wrangler/
