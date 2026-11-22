@@ -10,9 +10,10 @@ const links = [
 export function Contact() {
   return (
     <Section id="contact" eyebrow="Get in touch" title="Contact">
-      <p className="reveal max-w-xl text-lg leading-relaxed" style={{ color: 'var(--muted)' }}>
-        Open to conversations about QA, test automation and team process. The quickest way to
-        reach me is email.
+      <p className="reveal max-w-3xl text-lg leading-relaxed" style={{ color: 'var(--muted)' }}>
+        Open to conversations about QA, test automation and team process.
+        <br />
+        The quickest way to reach me is email.
       </p>
 
       <ul className="reveal mt-8 grid gap-px overflow-hidden rounded-2xl sm:grid-cols-3"

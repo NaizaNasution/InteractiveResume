@@ -44,8 +44,17 @@ export function Skills() {
             </h3>
             <ul className="mt-4 space-y-2">
               {group.items.map((item) => (
-                <li key={item} className="text-sm" style={{ color: 'var(--muted)' }}>
-                  {item}
+                <li
+                  key={item}
+                  className="flex gap-2.5 text-sm leading-relaxed"
+                  style={{ color: 'var(--muted)' }}
+                >
+                  {/* Same marker the experience highlights use, so the two lists read
+                      as one system. aria-hidden: the <li> already conveys list-ness. */}
+                  <span aria-hidden style={{ color: 'var(--accent)' }}>
+                    ▸
+                  </span>
+                  <span>{item}</span>
                 </li>
               ))}
             </ul>

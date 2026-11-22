@@ -75,7 +75,7 @@ export function Experience() {
                   className="no-print mt-3 inline-block font-mono text-xs transition-opacity group-hover:opacity-70"
                   style={{ color: 'var(--accent)' }}
                 >
-                  {isOpen ? '− Collapse' : `+ ${job.highlights.length} highlights`}
+                  {isOpen ? '− Collapse' : `+ Click for more details`}
                 </span>
               </button>
 

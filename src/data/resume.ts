@@ -142,15 +142,23 @@ export const skills: SkillGroup[] = [
   {
     category: 'Automation',
     items: [
-      'Playwright',
-      'Automated test scripts',
+      'Playwright Automation',
+      'AI Automated test scripts',
+      'AI-assisted exploratory testing',
+      'AI-assisted test cases creation',
       'Web application testing',
       'Regression automation',
     ],
   },
   {
     category: 'Tools & platforms',
-    items: ['Git', 'TestMu (formerly LambdaTest)', 'Ego-Browser via Claude Code'],
+    items: [
+      'Git',
+      'Jira',
+      'Notion',
+      'TestMu (formerly LambdaTest)',
+      'Ego-Browser via Claude Code',
+    ],
   },
   {
     category: 'Testing & QA',
