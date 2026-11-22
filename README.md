@@ -80,8 +80,20 @@ from 893 KB to 78 KB. Drop in a replacement at the same path to change it.
 
 The build is fully static — `dist/` can go on any static host.
 
-**Netlify / Vercel / Cloudflare Pages:** build command `npm run build`, publish
-directory `dist`.
+**Cloudflare Pages (current target).** Connect the GitHub repo in the Cloudflare
+dashboard and use:
+
+| Setting | Value |
+| --- | --- |
+| Framework preset | Vite |
+| Build command | `npm run build` |
+| Build output directory | `dist` |
+| Production branch | `master` |
+
+`.node-version` pins the build image to Node 22 so Cloudflare's default doesn't drift
+away from what Vite 6 supports. Every push to `master` triggers a redeploy.
+
+**Netlify / Vercel:** same build command and publish directory.
 
 **GitHub Pages project site** (served from `https://<user>.github.io/<repo>/`): set
 `base` in [`vite.config.ts`](vite.config.ts) to `'/<repo-name>/'` first, then deploy
