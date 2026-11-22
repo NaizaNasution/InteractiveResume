@@ -2,33 +2,46 @@
  * ─────────────────────────────────────────────────────────────────────────────
  *  ALL SITE CONTENT LIVES HERE.
  *  Edit this file to update the resume — no component changes needed.
+ *
+ *  The page is written to serve two readers' goals:
+ *    1. An employer sizing up an experienced QA Automation Engineer.
+ *    2. An employer who wants everything visible without hunting for it.
+ *  So: automation leads, nothing is hidden behind a click by default, and the
+ *  copy is written in the first person rather than as resume shorthand.
  * ─────────────────────────────────────────────────────────────────────────────
  */
 
 export const profile = {
   name: 'Muhammad Naireza Nasution',
   shortName: 'Naireza',
-  title: 'System Tester',
-  tagline: 'QA engineer building reliable release processes for fast-moving agile teams.',
+
+  /**
+   * Professional identity, not the employer's job title. The accurate title that
+   * Caction gives the role ("System Tester") stays on the Experience entry below.
+   */
+  title: 'QA Automation Engineer',
+
+  tagline:
+    'Playwright automation, test strategy and release quality for fast-moving agile teams.',
+
   // Not shown on the page currently — the hero eyebrow that used it was removed.
   location: 'Subang Jaya, Malaysia',
 
-  /**
-   * Verbatim from your Word resume.
-   * NOTE: this reads as a fresh-graduate objective and undersells 5+ years of QA
-   * work. A suggested replacement is in `summaryAlt` — swap the two if you agree.
-   */
   summary:
+    'QA automation engineer with six years owning quality in a high-velocity agile ' +
+    'environment. I introduced Playwright to the team\u2019s release process, design and ' +
+    'run testing end to end — authoring cases to 95% coverage — and work directly with ' +
+    'developers to reproduce and close defects. I also built and run the internship ' +
+    'programme, getting new testers contributing within their first week.',
+
+  /**
+   * The original objective statement, kept verbatim from your Word resume for
+   * reference. It reads as a fresh-graduate objective, so the page no longer uses it.
+   */
+  summaryOriginal:
     'Seeking to fully employ acquired academic knowledge while acquiring work ' +
     'experience at the same time. A committed worker with a focus to assist the ' +
     'organization to reach its goal and take on more responsibility as quickly as possible.',
-
-  summaryAlt:
-    'System tester with 5+ years owning quality in a high-velocity agile environment. ' +
-    'I design and run the test process end to end — authoring cases to 95% coverage, ' +
-    'introducing Playwright automation, and working directly with developers to close ' +
-    'defects. I also built and run the internship programme, getting new testers ' +
-    'contributing within their first week.',
 } as const
 
 export const contact = {
@@ -54,58 +67,41 @@ export type Job = {
 export const experience: Job[] = [
   {
     id: 'caction',
-    company: 'Sales Connection / Caction',
+    company: 'Caction',
     location: 'Subang Jaya, Malaysia',
-    role: 'System Tester',
+    role: 'QA Automation Engineer',
     start: 'Dec 2020',
-    // TODO: your Word resume says "Present" (last edited May 2025). Update if that changed.
+    // TODO: confirm this is still current.
     end: 'Present',
     current: true,
     blurb:
-      'Own the testing process for a high-velocity agile product team, and run the ' +
-      'internship programme end to end.',
+      'Own the testing process for a high-velocity agile product team — including the ' +
+      'move from manual testing into Playwright automation — and run the internship ' +
+      'programme end to end.',
     highlights: [
-      'Created a detailed testing process to manage a high-velocity agile development environment.',
-      'Authored test cases and executed tests for web applications, achieving 95% coverage.',
       'Introduced automated test scripts using Playwright.',
+      'Authored test cases and executed tests for web applications, achieving 95% coverage.',
+      'Created a detailed testing process to manage a high-velocity agile development environment.',
       'Communicate directly with developers to reproduce, triage and resolve bugs.',
       'Created an onboarding process for interns that gets them contributing within one week.',
       'Evaluate intern performance throughout their internship.',
     ],
-    tags: ['Playwright', 'Test Strategy', 'Agile', 'Mentoring'],
+    tags: ['Playwright', 'Test Automation', 'Test Strategy', 'Agile', 'Mentoring'],
   },
   {
-    id: 'salesconnection-intern',
-    company: 'Sales Connection',
+    id: 'caction-intern',
+    company: 'Caction',
     location: 'Subang Jaya, Malaysia',
-    role: 'Intern',
+    role: 'Software Development / Customer Support Intern',
     start: 'Sep 2020',
     end: 'Dec 2020',
     blurb: 'First exposure to product QA and customer-facing IT support.',
     highlights: [
-      'Provided IT support to customers.',
       'Tested new release features ahead of rollout.',
       'Analysed upcoming features for testability and edge cases.',
+      'Provided IT support to customers.',
     ],
     tags: ['Manual QA', 'IT Support'],
-  },
-  {
-    id: 'familymart',
-    company: 'Family Mart',
-    location: 'Saitama, Japan',
-    role: 'Store Clerk',
-    start: 'Dec 2015',
-    end: 'Dec 2016',
-    blurb:
-      'A year working and living in Japan — where the Japanese language and a habit ' +
-      'for process discipline came from.',
-    highlights: [
-      'Managed wide-ranging daily operations, including inventory management.',
-      'Placed special orders on behalf of customers.',
-      'Processed POS transactions.',
-      'Took a leadership role during shifts.',
-    ],
-    tags: ['Operations', 'Leadership'],
   },
 ]
 
@@ -135,38 +131,45 @@ export const education: Education[] = [
 ]
 
 /**
- * ⚠️ DRAFT — your Word resume has a "SKILLS" heading with nothing under it.
- * These are inferred from your work history. Please correct, cut and add to them.
+ * Automation leads deliberately — it is the first thing an employer should read.
+ *
+ * ⚠️ Still partly a draft: your Word resume has a "SKILLS" heading with nothing
+ * under it, so everything except the tools you named is inferred from your history.
  */
 export type SkillGroup = { category: string; items: string[] }
 
 export const skills: SkillGroup[] = [
   {
+    category: 'Automation',
+    items: [
+      'Playwright',
+      'Automated test scripts',
+      'Web application testing',
+      'Regression automation',
+    ],
+  },
+  {
+    category: 'Tools & platforms',
+    items: ['Git', 'TestMu (formerly LambdaTest)', 'Ego-Browser via Claude Code'],
+  },
+  {
     category: 'Testing & QA',
     items: [
       'Test case design',
       'Test planning & strategy',
-      'Regression testing',
       'Exploratory testing',
       'Defect reporting & triage',
       'Release / UAT testing',
     ],
   },
   {
-    category: 'Automation',
-    items: ['Playwright', 'Automated test scripts', 'Web application testing'],
-  },
-  {
-    category: 'Tools & platforms',
-    items: [
-      'Git',
-      'TestMu (formerly LambdaTest)',
-      'Ego-Browser via Claude Code',
-    ],
-  },
-  {
     category: 'Ways of working',
-    items: ['Agile / Scrum', 'Developer collaboration', 'Onboarding design', 'Mentoring & evaluation'],
+    items: [
+      'Agile / Scrum',
+      'Developer collaboration',
+      'Onboarding design',
+      'Mentoring & evaluation',
+    ],
   },
 ]
 

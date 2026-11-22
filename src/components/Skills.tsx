@@ -11,7 +11,7 @@ export function Skills() {
 
   return (
     <Section id="skills" eyebrow="What I bring" title="Skills">
-      <div className="no-print reveal mb-8 flex flex-wrap gap-2">
+      <div className="no-print reveal mb-6 flex flex-wrap gap-2">
         {categories.map((c) => {
           const on = filter === c
           return (
@@ -32,7 +32,7 @@ export function Skills() {
         })}
       </div>
 
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {shown.map((group) => (
           <div
             key={group.category}

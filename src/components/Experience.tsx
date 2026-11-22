@@ -3,21 +3,20 @@ import { experience } from '../data/resume'
 import { Section } from './Section'
 
 export function Experience() {
-  // The current role starts expanded; the rest open on click.
-  const [open, setOpen] = useState<string[]>(
-    experience.filter((j) => j.current).map((j) => j.id),
-  )
+  // Everything starts expanded: an employer should not have to click to read the
+  // work. The toggle stays available for anyone who wants to collapse a role.
+  const [collapsed, setCollapsed] = useState<string[]>([])
 
   const toggle = (id: string) =>
-    setOpen((prev) => (prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]))
+    setCollapsed((prev) => (prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]))
 
   return (
     <Section id="experience" eyebrow="Where I've worked" title="Experience">
       <ol className="relative">
         {experience.map((job) => {
-          const isOpen = open.includes(job.id)
+          const isOpen = !collapsed.includes(job.id)
           return (
-            <li key={job.id} className="reveal print-block relative pb-4 pl-8 sm:pl-10">
+            <li key={job.id} className="reveal print-block relative pb-8 pl-8 sm:pl-10">
               {/* timeline rail + node */}
               <span
                 aria-hidden
@@ -56,13 +55,27 @@ export function Experience() {
                   {job.location}
                 </p>
 
-                <p className="mt-3 max-w-2xl text-sm leading-relaxed">{job.blurb}</p>
+                <p className="mt-2.5 max-w-2xl text-sm leading-relaxed">{job.blurb}</p>
+
+                {/* Tags stay visible whether or not the role is collapsed — they are
+                    the fastest signal of what the work involved. */}
+                <ul className="mt-3 flex flex-wrap gap-2">
+                  {job.tags.map((t) => (
+                    <li
+                      key={t}
+                      className="rounded-full px-2.5 py-1 font-mono text-[11px]"
+                      style={{ backgroundColor: 'var(--accent-soft)', color: 'var(--accent)' }}
+                    >
+                      {t}
+                    </li>
+                  ))}
+                </ul>
 
                 <span
                   className="no-print mt-3 inline-block font-mono text-xs transition-opacity group-hover:opacity-70"
                   style={{ color: 'var(--accent)' }}
                 >
-                  {isOpen ? '− Hide details' : `+ ${job.highlights.length} highlights`}
+                  {isOpen ? '− Collapse' : `+ ${job.highlights.length} highlights`}
                 </span>
               </button>
 
@@ -72,25 +85,13 @@ export function Experience() {
                 style={{ gridTemplateRows: isOpen ? '1fr' : '0fr' }}
               >
                 <div className="overflow-hidden">
-                  <ul className="mt-4 space-y-2.5">
+                  <ul className="mt-3 space-y-2">
                     {job.highlights.map((h) => (
                       <li key={h} className="flex gap-3 text-sm leading-relaxed">
                         <span aria-hidden style={{ color: 'var(--accent)' }}>
                           ▸
                         </span>
                         <span style={{ color: 'var(--muted)' }}>{h}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <ul className="mt-4 flex flex-wrap gap-2 pb-2">
-                    {job.tags.map((t) => (
-                      <li
-                        key={t}
-                        className="rounded-full px-2.5 py-1 font-mono text-[11px]"
-                        style={{ backgroundColor: 'var(--accent-soft)', color: 'var(--accent)' }}
-                      >
-                        {t}
                       </li>
                     ))}
                   </ul>

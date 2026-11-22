@@ -15,7 +15,7 @@ export function Contact() {
         reach me is email.
       </p>
 
-      <ul className="reveal mt-10 grid gap-px overflow-hidden rounded-2xl sm:grid-cols-3"
+      <ul className="reveal mt-8 grid gap-px overflow-hidden rounded-2xl sm:grid-cols-3"
           style={{ backgroundColor: 'var(--line)', border: '1px solid var(--line)' }}>
         {links.map((l) => (
           <li key={l.label} style={{ backgroundColor: 'var(--panel)' }}>
@@ -37,7 +37,7 @@ export function Contact() {
         ))}
       </ul>
 
-      <footer className="mt-20 flex flex-wrap items-center justify-between gap-4 pt-8"
+      <footer className="mt-14 flex flex-wrap items-center justify-between gap-4 pt-8"
               style={{ borderTop: '1px solid var(--line)' }}>
         <p className="text-xs" style={{ color: 'var(--muted)' }}>
           © {new Date().getFullYear()} {profile.name}

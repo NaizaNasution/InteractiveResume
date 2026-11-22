@@ -4,7 +4,7 @@ import { Section } from './Section'
 export function About() {
   return (
     <Section id="about" eyebrow="Profile" title="About">
-      <div className="grid gap-12 md:grid-cols-[1.5fr_1fr]">
+      <div className="grid gap-10 md:grid-cols-[1.5fr_1fr]">
         <p className="reveal text-lg leading-relaxed" style={{ color: 'var(--muted)' }}>
           {profile.summary}
         </p>

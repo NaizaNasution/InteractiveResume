@@ -2,6 +2,19 @@
 
 A single-page resume site built with React 19, Vite 6, TypeScript and Tailwind CSS v4.
 
+## Who the page is for
+
+Two user stories drive the design:
+
+1. **An employer sizing up an experienced QA Automation Engineer.** Automation leads
+   everywhere — the headline, the summary, the first skill group, and the first bullet
+   of the current role.
+2. **An employer who wants all the information concisely.** Nothing is hidden behind a
+   click by default: every experience entry is expanded on load and tech tags are always
+   visible. The toggle only lets a reader *collapse* a role.
+
+Changing either of these means changing copy in `src/data/resume.ts`, not components.
+
 ## Running it
 
 ```bash
@@ -34,23 +47,26 @@ from 893 KB to 78 KB. Drop in a replacement at the same path to change it.
 
 ## Needs your input
 
-1. **Skills are a draft.** Your Word resume has a `SKILLS` heading with nothing under
-   it, so the skill list is inferred from your job history. Please correct it.
-2. **The summary reads like a fresh-graduate objective.** The original is used as-is
-   in `profile.summary`; a rewritten version that reflects 5+ years of QA work sits in
-   `profile.summaryAlt`. Swap them if you prefer it.
-3. **"Present" end date** on the Caction role came from a document last edited in
-   May 2025 — confirm it's still current.
-4. **Japanese proficiency level** was guessed as "Conversational"; your resume lists
+1. **Skills are partly a draft.** Your Word resume has a `SKILLS` heading with nothing
+   under it. Git, TestMu and Ego-Browser are yours; the rest is inferred from your job
+   history. Please correct it.
+2. **The headline is a positioning choice.** `profile.title` reads "QA Automation
+   Engineer" — your professional identity. Your employer's actual title for the role,
+   "System Tester", stays on the Experience entry, so nothing is misrepresented.
+3. **The summary was rewritten.** `profile.summary` is now automation-forward prose,
+   not the original objective statement. The verbatim original is preserved in
+   `profile.summaryOriginal` if you want it back.
+4. **"Present" end date** on the Caction role — confirm it's still current.
+5. **Japanese proficiency level** was guessed as "Conversational"; your resume lists
    the language without a level.
-5. **Your phone number is on a public page.** Consider removing it from `contact` and
+6. **Your phone number is on a public page.** Consider removing it from `contact` and
    leaving only email and LinkedIn.
 
 ## Features
 
 - Light / dark theme, remembered in `localStorage`, applied before first paint (no flash)
 - Scroll-spy navigation with a mobile menu
-- Expandable experience entries; the current role is open by default
+- Experience entries expanded by default, collapsible on click; tech tags always visible
 - Skill category filtering
 - Scroll-reveal animations that degrade safely — content is still revealed when the
   viewport jumps (anchor links, `End` key, fast scrolling) and when

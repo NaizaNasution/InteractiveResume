@@ -6,8 +6,8 @@ export function Hero() {
   const current = experience.find((j) => j.current)
 
   return (
-    <section id="top" className="mx-auto w-full max-w-5xl px-6 pt-32 pb-16 sm:pt-40 sm:pb-24">
-      <div className="grid items-center gap-12 md:grid-cols-[1.4fr_1fr]">
+    <section id="top" className="mx-auto w-full max-w-5xl px-6 pt-28 pb-10 sm:pt-32 sm:pb-14">
+      <div className="grid items-center gap-10 md:grid-cols-[1.4fr_1fr]">
         <div className="reveal is-visible">
           <h1 className="text-4xl leading-[1.08] font-semibold tracking-tight sm:text-6xl">
             {profile.name}
@@ -26,7 +26,7 @@ export function Hero() {
             )}
           </p>
 
-          <p className="mt-6 max-w-xl text-base leading-relaxed" style={{ color: 'var(--muted)' }}>
+          <p className="mt-5 max-w-xl text-base leading-relaxed" style={{ color: 'var(--muted)' }}>
             {profile.tagline}
           </p>
 
